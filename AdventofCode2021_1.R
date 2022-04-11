@@ -1,5 +1,4 @@
 #libraries
-library(stringr)
 
 #PART 1
 #example
@@ -11,8 +10,10 @@ all_elements <- 1:length(directions)
 fu <- function(x, position){
   dataset <- x
   print(position)
+
   #if not the first element...
   if(position != 1){
+
     #compare whether the element is > the last
     print(dataset[position] > dataset[position-1])
 
@@ -22,13 +23,14 @@ fu <- function(x, position){
   }
 } #fu end
 
+#for all elements, apply the function.
+#get number of elements that are > the last element
 results <- lapply(all_elements, FUN = fu, x = directions)
-
 sum(results == "TRUE")
 
 #Read in csv file
 directions <- read.csv("AOC2021_1.txt", header = FALSE)
-directions
+as.list(directions)
 
 all_elements <- 1:nrow(directions)
 results <- mapply(all_elements, FUN = fu, x = directions)
