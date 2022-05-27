@@ -62,13 +62,3 @@ results <- lapply(all_elements, FUN = compare_x_to_xminusone, x = sums_vector)
 sum(results == "TRUE")
 
 
-
-
-
-## after you get a vector or df w/ sums, then can use the function from 1.
-library(Hmisc)
-
-dir_df <- as.data.frame(directions)
-dir_df$lag <- Lag(dir_df$directions, shift = -1)
-dir_df$lag2 <- Lag(dir_df$directions, shift = -2)
-
